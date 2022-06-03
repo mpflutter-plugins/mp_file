@@ -98,6 +98,12 @@ class File extends IO.FileSystemEntity implements IO.File {
     return writeAsBytes(encoding.encode(contents), mode: mode, flush: flush);
   }
 
+  @override
+  Future<IO.FileSystemEntity> delete({bool recursive = false}) async {
+    await FileManager.getFileManager().delete(this, recursive);
+    return this;
+  }
+
   // Not support methods.
   @override
   Uint8List readAsBytesSync() {

@@ -73,4 +73,9 @@ class IOFileManager extends FileManager {
       }
     })(), mode: isAppend ? IO.FileMode.append : IO.FileMode.write);
   }
+
+  @override
+  Future<void> delete(IO.FileSystemEntity file, bool recursive) async {
+    await IO.File(file.path).delete(recursive: recursive);
+  }
 }

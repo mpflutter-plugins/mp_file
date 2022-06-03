@@ -230,4 +230,42 @@ class WXFileManager extends FileManager {
     ]);
     return completer.future;
   }
+
+  @override
+  Future<void> delete(IO.FileSystemEntity file, bool recursive) async {
+    if (file is Directory) {
+      final completer = Completer<void>();
+      final manager = await mpjs.context['wx']
+          .callMethod('getFileSystemManager') as mpjs.JsObject;
+      manager.callMethod('rmdir', [
+        {
+          'dirPath': file.path,
+          'recursive': recursive,
+          'success': (mpjs.JsObject res) async {
+            completer.complete();
+          },
+          'fail': (mpjs.JsObject res) async {
+            completer.completeError(await res.getPropertyValue('errMsg'));
+          },
+        }
+      ]);
+      return completer.future;
+    } else {
+      final completer = Completer<void>();
+      final manager = await mpjs.context['wx']
+          .callMethod('getFileSystemManager') as mpjs.JsObject;
+      manager.callMethod('unlink', [
+        {
+          'filePath': file.path,
+          'success': (mpjs.JsObject res) async {
+            completer.complete();
+          },
+          'fail': (mpjs.JsObject res) async {
+            completer.completeError(await res.getPropertyValue('errMsg'));
+          },
+        }
+      ]);
+      return completer.future;
+    }
+  }
 }

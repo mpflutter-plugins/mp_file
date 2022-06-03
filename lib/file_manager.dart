@@ -17,6 +17,7 @@ abstract class FileManager {
   Future<bool> exists(IO.FileSystemEntity file);
   Future<File> copy(File file, String newPath);
   Future<void> rename(IO.FileSystemEntity file, String newPath);
+  Future<void> delete(IO.FileSystemEntity file, bool recursive);
   Future<DateTime> lastAccessed(File file);
   Future<DateTime> lastModified(File file);
   Future<int> length(File file);
