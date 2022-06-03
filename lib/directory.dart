@@ -22,13 +22,19 @@ class Directory extends IO.FileSystemEntity implements IO.Directory {
 
   @override
   Future<IO.Directory> create({bool recursive = false}) async {
-    await FileManager.getFileManager().mkdir(this);
+    await FileManager.getFileManager().mkdir(this, recursive: recursive);
     return this;
   }
 
   @override
   Future<bool> exists() {
     return FileManager.getFileManager().exists(this);
+  }
+
+  @override
+  Future<IO.FileSystemEntity> delete({bool recursive = false}) async {
+    await FileManager.getFileManager().delete(this, recursive);
+    return this;
   }
 
   @override
