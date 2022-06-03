@@ -219,7 +219,9 @@ class WXFileManager extends FileManager {
         'success': (mpjs.JsObject res) async {
           completer.complete((await res.getPropertyValue('files') as List)
               .whereType<String>()
-              .toList());
+              .map((e) {
+            return '${file.path}/$e';
+          }).toList());
         },
         'fail': (mpjs.JsObject res) async {
           completer.completeError(await res.getPropertyValue('errMsg'));

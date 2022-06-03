@@ -4,6 +4,8 @@ abstract class FileManager {
   static FileManager getFileManager() {
     if (MPEnv.envHost() == MPEnvHostType.wechatMiniProgram) {
       return WXFileManager();
+    } else if (MPEnv.debugEnvHost != null) {
+      return IOFileManager();
     }
     throw 'No available file manager.';
   }

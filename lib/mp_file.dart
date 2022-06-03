@@ -12,3 +12,4 @@ part './file.dart';
 part './directory.dart';
 part './file_manager.dart';
 part './wx_file_manager.dart';
+part './io_file_manager.dart';
