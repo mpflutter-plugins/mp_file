@@ -8,9 +8,13 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter: ">=0.11.0"
-  mpcore: ">=0.11.0"
+  flutter: ">0.16.4"
+  mpcore: ">0.16.4"
 
 dependency_overrides:
-  flutter: ">=0.11.0"
-  mpcore: ">=0.11.0"
+  # flutter: ">=0.11.0"
+  # mpcore: ">=0.11.0"
+  flutter:
+    path: /Users/saiakirahui/Documents/mpflutter/mpflutter/packages/flutter
+  mpcore:
+    path: /Users/saiakirahui/Documents/mpflutter/mpflutter/packages/mpcore
