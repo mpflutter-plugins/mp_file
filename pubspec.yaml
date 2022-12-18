@@ -1,15 +1,15 @@
 name: mp_file
 description: The mpflutter file api.
 publish_to: none
-version: 0.1.0
+version: 0.2.0
 homepage: /
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter: ">0.16.4"
-  mpcore: ">0.16.4"
+  flutter: ">0.19.0"
+  mpcore: ">0.19.0"
 
 dependency_overrides:
   # flutter: ">=0.11.0"

@@ -6,6 +6,8 @@ abstract class FileManager {
       return WXFileManager();
     } else if (MPEnv.envHost() == MPEnvHostType.playboxProgram) {
       return PBFileManager();
+    } else if (MPEnv.envHost() == MPEnvHostType.browser) {
+      return WebFileManager();
     } else if (MPEnv.debugEnvHost != null) {
       return IOFileManager();
     }

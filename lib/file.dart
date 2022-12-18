@@ -2,8 +2,9 @@ part of 'mp_file.dart';
 
 class File extends IO.FileSystemEntity implements IO.File {
   String _path;
+  mpjs.JsObject? _jsObject;
 
-  File(this._path);
+  File(this._path, [this._jsObject]);
 
   @override
   IO.File get absolute => new File(_absolutePath);
