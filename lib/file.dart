@@ -25,7 +25,7 @@ class File extends IO.FileSystemEntity implements IO.File {
   }
 
   @override
-  Future<IO.File> create({bool recursive = false}) async {
+  Future<IO.File> create({bool recursive = false, bool exclusive = false}) async {
     if (await exists()) {
       throw 'file exists';
     }
@@ -138,7 +138,7 @@ class File extends IO.FileSystemEntity implements IO.File {
   }
 
   @override
-  void createSync({bool recursive = false}) {
+  void createSync({bool recursive = false, bool exclusive = false}) {
     throw 'not support sync operations.';
   }
 
